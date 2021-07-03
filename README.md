@@ -46,7 +46,7 @@ This sets the password of the COUCH2PG_USER.
 
 ### Writing Tests
 
-Tests are written using the [pgTAP](https://pgtap.org/) library.  The pgTAP documentation can be dound [here](https://pgtap.org/). If you need to add another test just add it to the `tests.sql` file.
+Tests are written using the [pgTAP](https://pgtap.org/) library.  The pgTAP documentation can be found [here](https://pgtap.org/). If you need to add another test just add it to the `tests.sql` file.
 
 ### Running Tests
 
