@@ -1,11 +1,10 @@
 version: '3.7'
 services:
-    postgres:
+    cht-postgres-test:
         build:
             context: .
-            target: default
-        container_name: postgres
-        image: cht-postgres:13
+            target: test-buld
+        container_name: cht_postgres_test
         environment:
             POSTGRES_DB: cht
             POSTGRES_USER: cht
