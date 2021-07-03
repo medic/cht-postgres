@@ -18,10 +18,3 @@ RUN git clone --branch v1.1.0 git://github.com/theory/pgtap.git \
     && cd pgtap \
     && make \
     && make install
-
-#Create tests Directory
-RUN mkdir /tests
-# copy tests to tests directory
-COPY tests.sql /tests/tests.sql
-COPY run_tests.sh /tests/run_tests.sh
-RUN chmod +x /tests/run_tests.sh

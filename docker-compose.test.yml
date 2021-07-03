@@ -15,13 +15,9 @@ services:
         volumes:
             - cht-postgres-test:/var/lib/postgresql/data
     sut:
-        build:
-            context: .
-            target: test-buld
+
         container_name: sut
-        depends_on:
-        - cht_postgres_test
-        restart: "no"
+        image: ubuntu:18.04
         environment:
             POSTGRES_DB: cht
             POSTGRES_USER: cht
@@ -29,6 +25,10 @@ services:
             COUCH2PG_USER: cht_couch2pg
             COUCH2PG_USER_PASSWORD: couch2pg_password
             DB_OWNER_GROUP: cht_analytics
+            POSTGRES_HOST:
+            POSTGRES_HOST: cht_postgres_test
+        volumes:
+            - ./:/tests
         command: [ "/bin/sh", "-c", "/tests/run_tests.sh"]
 
 
