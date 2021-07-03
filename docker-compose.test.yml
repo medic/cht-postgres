@@ -14,6 +14,23 @@ services:
             DB_OWNER_GROUP: cht_analytics
         volumes:
             - cht-postgres-test:/var/lib/postgresql/data
+    sut:
+        build:
+            context: .
+            target: test-buld
+        container_name: sut
+        depends_on:
+        - cht-postgres-test
+        restart: "no"
+        environment:
+            POSTGRES_DB: cht
+            POSTGRES_USER: cht
+            POSTGRES_PASSWORD: cht_password
+            COUCH2PG_USER: cht_couch2pg
+            COUCH2PG_USER_PASSWORD: couch2pg_password
+            DB_OWNER_GROUP: cht_analytics
+        command: [ "/bin/sh", "-c", "/tests/run_tests.sh"]
+
 
 volumes:
     cht-postgres-test:

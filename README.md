@@ -41,3 +41,17 @@ This sets the user that will be used to insert read-only replicas of CouchDB dat
 #### 6. COUCH2PG_USER_PASSWORD
 
 This sets the password of the COUCH2PG_USER.
+
+## Tests
+
+### Writing Tests
+
+Tests are written using the [pgTAP](https://pgtap.org/) library.  The pgTAP documentation can be dound [here](https://pgtap.org/). If you need to add another test just add it to the `tests.sql` file.
+
+### Running Tests
+
+To run tests locally, you can run the `docker-compose.test.yml` file. The test results will appear under  sut (software under test) service.
+
+```bash
+docker-compose  -f docker-compose.test.yml up --build
+```

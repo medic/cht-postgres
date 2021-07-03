@@ -4,9 +4,8 @@
 
 
 
-    -- Plan count should match the number of tests. If it does
-    -- not then pg_prove will fail the test
-    SELECT plan(2);
+    -- Plan count should match the number of tests.
+    SELECT plan(3);
 
     -- Run the tests
 
