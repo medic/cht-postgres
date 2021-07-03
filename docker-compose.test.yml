@@ -25,7 +25,6 @@ services:
             COUCH2PG_USER: cht_couch2pg
             COUCH2PG_USER_PASSWORD: couch2pg_password
             DB_OWNER_GROUP: cht_analytics
-            POSTGRES_HOST:
             POSTGRES_HOST: cht_postgres_test
         volumes:
             - ./:/tests
