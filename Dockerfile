@@ -1,11 +1,11 @@
 ARG postgresql_version=13
-FROM postgres:$postgresql_version as default
+FROM postgres:$postgresql_version as base
 LABEL Authors="MEDIC SRE TEAM<devops@medic.org>"
 COPY init-user-db.sh /docker-entrypoint-initdb.d/init-user-db.sh
 RUN chmod +x /docker-entrypoint-initdb.d/init-user-db.sh
 
 # test image build
-FROM default as test-buld
+FROM base as test-buld
 COPY install-pg-tap.sh  /docker-entrypoint-initdb.d/install-pg-tap.sh
 RUN chmod +x /docker-entrypoint-initdb.d/install-pg-tap.sh
 

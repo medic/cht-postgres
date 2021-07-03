@@ -20,7 +20,7 @@ services:
             target: test-buld
         container_name: sut
         depends_on:
-        - cht-postgres-test
+        - cht_postgres_test
         restart: "no"
         environment:
             POSTGRES_DB: cht
