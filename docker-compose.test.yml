@@ -14,9 +14,8 @@ services:
             DB_OWNER_GROUP: cht_analytics
         volumes:
             - cht-postgres-test:/var/lib/postgresql/data
-    sut:
 
-        container_name: sut
+    sut:
         image: ubuntu:18.04
         environment:
             POSTGRES_DB: cht
