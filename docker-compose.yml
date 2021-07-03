@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+    postgres:
+        container_name: postgres
+        image: cht-postgres:13
+        environment:
+            POSTGRES_DB: cht
+            POSTGRES_USER: cht
+            POSTGRES_PASSWORD: cht_password
+            COUCH2PG_USER: cht_couch2pg
+            COUCH2PG_USER_PASSWORD: couch2pg_password
+            DB_OWNER_GROUP: cht_analytics
+        volumes:
+            - cht-postgres-test:/var/lib/postgresql/data
+
+volumes:
+    cht-postgres-test:
+        name: cht-postgres-test
