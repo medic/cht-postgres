@@ -3,7 +3,7 @@ set -e
 /bin/bash /tests/entrypoint.sh postgres
 
 export PGPASSWORD=$POSTGRES_PASSWORD
-su postgres -c 'postgres' &
+#su postgres -c 'postgres' &
 #waiting for postgres
 until  pg_isready -q  -U $POSTGRES_USER -d $POSTGRES_DB
 do
