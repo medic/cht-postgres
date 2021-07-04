@@ -3,7 +3,7 @@ services:
     postgres:
         build:
             context: .
-            target: default
+            dockerfile: Dockerfile
         container_name: postgres
         image: cht-postgres:13
         environment:

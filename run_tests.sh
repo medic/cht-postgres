@@ -1,12 +1,11 @@
 #! /bin/bash
 set -e
-apt-get update
-apt-get -y install postgresql-client
+/bin/bash /tests/entrypoint.sh postgres
 
 export PGPASSWORD=$POSTGRES_PASSWORD
-
+su postgres -c 'postgres' &
 #waiting for postgres
-until  pg_isready -q  -h $POSTGRES_HOST -U $POSTGRES_USER -d $POSTGRES_DB
+until  pg_isready -q  -U $POSTGRES_USER -d $POSTGRES_DB
 do
   echo "Waiting for PostgreSQL to start " >&2
   sleep 5
