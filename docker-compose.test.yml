@@ -13,4 +13,10 @@ services:
             COUCH2PG_USER_PASSWORD: couch2pg_password
             DB_OWNER_GROUP: cht_analytics
             POSTGRES_HOST: localhost
+        volumes:
+            - cht-postgres-test:/var/lib/postgresql/data
         command: ["/bin/sh", "/tests/run_tests.sh"]
+
+volumes:
+    cht-postgres-test:
+        name: cht-postgres-test
