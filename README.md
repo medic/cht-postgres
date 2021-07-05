@@ -42,6 +42,32 @@ This sets the user that will be used to insert read-only replicas of CouchDB dat
 
 This sets the password of the COUCH2PG_USER.
 
+A sample docker-compose file is shown below.
+
+```yaml
+
+version: '3.7'
+services:
+    postgres:
+        image: medicmobile/cht-postgres
+        container_name: cht-postgres
+        environment:
+            POSTGRES_DB: cht
+            POSTGRES_USER: cht
+            POSTGRES_PASSWORD: cht_password
+            COUCH2PG_USER: cht_couch2pg
+            COUCH2PG_USER_PASSWORD: couch2pg_password
+            DB_OWNER_GROUP: cht_analytics
+        volumes:
+            - cht-postgres-data:/var/lib/postgresql/data
+
+volumes:
+    cht-postgres-data:
+        name: cht-postgres-data
+
+
+```
+
 ## Tests
 
 ### Writing Tests

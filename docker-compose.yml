@@ -4,8 +4,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        container_name: postgres
-        image: cht-postgres:13
+        container_name: cht-postgres
         environment:
             POSTGRES_DB: cht
             POSTGRES_USER: cht
@@ -14,8 +13,8 @@ services:
             COUCH2PG_USER_PASSWORD: couch2pg_password
             DB_OWNER_GROUP: cht_analytics
         volumes:
-            - cht-postgres-test:/var/lib/postgresql/data
+            - cht-postgres-data:/var/lib/postgresql/data
 
 volumes:
-    cht-postgres-test:
-        name: cht-postgres-test
+    cht-postgres-data:
+        name: cht-postgres-data
