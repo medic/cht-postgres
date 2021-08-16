@@ -4,7 +4,7 @@ Dockerfile for generating the PostgreSQL image used with [cht-couch2pg](https://
 
 ## Building The Image
 
-To build an image, you need to choose the  PostgreSQL [version](https://hub.docker.com/_/postgres) that you plan to use as the base image and then run docker build with that version. An example for PostgreSQL 13 is shown below. The default value is Postgres 13
+To build an image, you need to choose the  PostgreSQL [version](https://hub.docker.com/_/postgres) that you plan to use as the base image and then run docker build with that version. An example for PostgreSQL 13 is shown below. If no version is specified, the default value of Postgres 13 will be chosen.
 
 ```bash
 docker build -t cht-postgres-13 --build-arg postgresql_version=13 .
@@ -36,11 +36,11 @@ This sets the default user role that will own the database. Use this role to gra
 
 #### 5. COUCH2PG_USER
 
-This sets the user that will be used to insert read-only replicas of CouchDB data.
+This creates the postgres user that will be used by the couch2pg replication process to insert read-only replicas of data from  CouchDB.
 
 #### 6. COUCH2PG_USER_PASSWORD
 
-This sets the password of the COUCH2PG_USER.
+This create the password that will be used by the COUCH2PG_USER.
 
 A sample docker-compose file is shown below.
 

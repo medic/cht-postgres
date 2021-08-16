@@ -1,9 +1,10 @@
 version: '3.7'
 services:
-    sut:
+    cht-postgres:
         build:
             context: .
-            dockerfile: Dockerfile.test
+            target: ${BUILD_TARGET:-base}
+        container_name: cht-postgres
         environment:
             POSTGRES_DB: cht
             POSTGRES_USER: cht
@@ -13,9 +14,8 @@ services:
             DB_OWNER_GROUP: cht_analytics
             POSTGRES_HOST: localhost
         volumes:
-            - cht-postgres-test:/var/lib/postgresql/data
-        command: ["/bin/sh", "/tests/run_tests.sh"]
+            - cht-postgres-data:/var/lib/postgresql/data
 
 volumes:
-    cht-postgres-test:
-        name: cht-postgres-test
+    cht-postgres-data:
+        name: cht-postgres-data
