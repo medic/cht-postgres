@@ -76,8 +76,9 @@ Tests are written using the [pgTAP](https://pgtap.org/) library.  The pgTAP docu
 
 ### Running Tests
 
-To run tests locally, you can run the `docker-compose.test.yml` file. The test results will appear under sut (software under test) service.
+To run tests locally, build the image and run the tests file
 
 ```bash
-docker-compose  -f docker-compose.test.yml up --build
+docker-compose build --build-arg postgresql_version=13  cht-postgres
+docker-compose run  cht-postgres /tests/tests.sh
 ```

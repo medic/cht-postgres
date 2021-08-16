@@ -46,7 +46,6 @@ jobs:
           flavor: |
             latest=auto
             suffix=${{matrix.postgresql_version}}
-          sep-tags: '-'
 
 
 
