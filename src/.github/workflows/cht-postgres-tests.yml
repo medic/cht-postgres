@@ -47,8 +47,6 @@ jobs:
             latest=auto
             suffix= ${{matrix.postgresql_version}}
 
-
-
       - name: Build and Publish to Docker Hub
         uses: docker/build-push-action@v2
         with:
