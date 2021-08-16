@@ -45,7 +45,7 @@ jobs:
             org.opencontainers.image.vendor=Medic
           flavor: |
             latest=auto
-            suffix=${{matrix.postgresql_version}}
+            suffix=postgres-${{matrix.postgresql_version}}
 
 
 
@@ -56,3 +56,4 @@ jobs:
           push:  ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/arch-v3' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          target: final_build

@@ -79,6 +79,8 @@ Tests are written using the [pgTAP](https://pgtap.org/) library.  The pgTAP docu
 To run tests locally, build the image and run the tests file
 
 ```bash
+# set the test build target
+export BUILD_TARGET=test-build
 docker-compose build --build-arg postgresql_version=13  cht-postgres
 docker-compose run  cht-postgres /tests/tests.sh
 ```
