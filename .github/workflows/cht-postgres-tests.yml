@@ -45,7 +45,8 @@ jobs:
             org.opencontainers.image.vendor=Medic
           flavor: |
             latest=auto
-            suffix= ${{matrix.postgresql_version}}
+            suffix=${{matrix.postgresql_version}}
+
 
       - name: Build and Publish to Docker Hub
         uses: docker/build-push-action@v2
