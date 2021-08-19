@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+    cht-postgres:
+        build:
+            context: .
+            target: ${BUILD_TARGET:-base}
+        container_name: cht-postgres
+        environment:
+            POSTGRES_DB: cht
+            POSTGRES_USER: cht
+            POSTGRES_PASSWORD: cht_password
+            COUCH2PG_USER: cht_couch2pg
+            COUCH2PG_USER_PASSWORD: couch2pg_password
+            DB_OWNER_GROUP: cht_analytics
+            POSTGRES_HOST: localhost
+        volumes:
+            - cht-postgres-data:/var/lib/postgresql/data
+
+volumes:
+    cht-postgres-data:
+        name: cht-postgres-data
